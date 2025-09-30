@@ -86,7 +86,7 @@
       align-items:center; 
       justify-content:space-between; 
       gap:16px; 
-      padding:14px 0; 
+      padding:10px 0; 
     }
     .brand{ 
       display:flex; 
@@ -367,9 +367,8 @@
 
     /* Testimonials */
     .testimonials{ 
-      padding:60px 0; 
+      padding:60px 0 80px; 
       border-top:1px solid var(--border); 
-      border-bottom:1px solid var(--border); 
       background:linear-gradient(180deg, var(--accent-bg), transparent); 
     }
     .testi-grid{ 
@@ -402,9 +401,7 @@
     /* Contact Form Section - REBUILT */
     .contact-section{ 
       padding:80px 0; 
-      background:
-        radial-gradient(800px 600px at 20% 50%, var(--accent-bg), transparent),
-        radial-gradient(600px 500px at 80% 50%, rgba(245,93,20,.06), transparent);
+      background:linear-gradient(180deg, var(--accent-bg), transparent);
     }
     .contact-wrapper{
       max-width:1000px;
@@ -629,7 +626,7 @@
       
       /* Navigation */
       .nav .container{ padding:0 16px; }
-      .nav-inner{ padding:20px 0; }
+      .nav-inner{ padding:12px 0; }
       .nav a.btn{ 
         padding:10px 16px; 
         border-radius:10px; 
@@ -926,63 +923,62 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="contact-section" id="contact">
-    <div class="contact-wrapper">
-      <div class="contact-header">
-        <h2 class="section-title">Start Your Transformation</h2>
-        <p class="section-sub">Tell us about your goals and we'll match you with the right program and coach to help you succeed.</p>
-        
-        <ul class="benefits-list">
-          <li>Free 15-minute consultation call</li>
-          <li>Custom training & nutrition roadmap</li>
-          <li>Cancel anytime – no long-term contract</li>
-        </ul>
-      </div>
+      <!-- Contact Form Integrated -->
+      <div class="contact-wrapper" style="margin-top:80px;">
+        <div class="contact-header" id="contact">
+          <h2 class="section-title">Start Your Transformation</h2>
+          <p class="section-sub">Tell us about your goals and we'll match you with the right program and coach to help you succeed.</p>
+          
+          <ul class="benefits-list">
+            <li>Free 15-minute consultation call</li>
+            <li>Custom training & nutrition roadmap</li>
+            <li>Cancel anytime – no long-term contract</li>
+          </ul>
+        </div>
 
-      <div class="form-card">
-        <div id="form-alert" class="alert" role="status" aria-live="polite"></div>
+        <div class="form-card">
+          <div id="form-alert" class="alert" role="status" aria-live="polite"></div>
 
-        <form id="lead-form" class="form" novalidate>
-          <div class="form-row">
-            <div class="field">
-              <label class="label" for="full_name">Full Name <span class="req">*</span></label>
-              <input class="input" type="text" id="full_name" name="full_name" placeholder="Jane Doe" required autocomplete="name">
+          <form id="lead-form" class="form" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label class="label" for="full_name">Full Name <span class="req">*</span></label>
+                <input class="input" type="text" id="full_name" name="full_name" placeholder="Jane Doe" required autocomplete="name">
+              </div>
+              <div class="field">
+                <label class="label" for="email">Email Address <span class="req">*</span></label>
+                <input class="input" type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+              </div>
             </div>
-            <div class="field">
-              <label class="label" for="email">Email Address <span class="req">*</span></label>
-              <input class="input" type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
-            </div>
-          </div>
 
-          <div class="form-row">
-            <div class="field">
-              <label class="label" for="phone">Phone Number</label>
-              <input class="input" type="tel" id="phone" name="phone" placeholder="+1 555 123 4567" autocomplete="tel">
-              <div class="hint">Optional – for scheduling updates only</div>
+            <div class="form-row">
+              <div class="field">
+                <label class="label" for="phone">Phone Number</label>
+                <input class="input" type="tel" id="phone" name="phone" placeholder="+1 555 123 4567" autocomplete="tel">
+                <div class="hint">Optional – for scheduling updates only</div>
+              </div>
+              <div class="field">
+                <label class="label" for="goal">Primary Goal</label>
+                <select class="select" id="goal" name="goal">
+                  <option value="Strength">Get Stronger</option>
+                  <option value="Fat Loss">Lose Fat</option>
+                  <option value="Performance">Sports Performance</option>
+                  <option value="Mobility">Mobility / Pain-Free</option>
+                </select>
+              </div>
             </div>
+
             <div class="field">
-              <label class="label" for="goal">Primary Goal</label>
-              <select class="select" id="goal" name="goal">
-                <option value="Strength">Get Stronger</option>
-                <option value="Fat Loss">Lose Fat</option>
-                <option value="Performance">Sports Performance</option>
-                <option value="Mobility">Mobility / Pain-Free</option>
-              </select>
+              <label class="label" for="message">Tell Us More</label>
+              <textarea class="textarea" id="message" name="message" placeholder="Your training experience, schedule constraints, any injuries or limitations..."></textarea>
             </div>
-          </div>
 
-          <div class="field">
-            <label class="label" for="message">Tell Us More</label>
-            <textarea class="textarea" id="message" name="message" placeholder="Your training experience, schedule constraints, any injuries or limitations..."></textarea>
-          </div>
-
-          <div class="actions">
-            <button id="submit-btn" class="btn btn-primary btn-submit" type="submit">Book Free Consultation</button>
-          </div>
-        </form>
+            <div class="actions">
+              <button id="submit-btn" class="btn btn-primary btn-submit" type="submit">Book Free Consultation</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </section>
