@@ -1,0 +1,1103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fitness Coaching – Stronger, Leaner, Healthier</title>
+  <meta name="description" content="Personal training & online coaching. Strength, nutrition, and mobility programs tailored to you.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --panel:#fff7f4;
+      --muted:#64748b;
+      --text:#0f172a;
+      --sub:#334155;
+      --accent:#F55D14;
+      --accent-dark:#d04a0f;
+      --accent-light:#ff7a3d;
+      --accent-bg:rgba(245, 93, 20, 0.1);
+      --accent-2:#0ea5e9;
+      --card:#ffffff;
+      --border:#e2e8f0;
+      --white:#ffffff;
+      --max:1200px;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(2,6,23,.06);
+    }
+
+    *,*::before,*::after{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0; 
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text); 
+      background:var(--bg);
+      text-rendering:optimizeLegibility; 
+      -webkit-font-smoothing:antialiased;
+      overflow-x: hidden;
+    }
+    img{ max-width:100%; display:block; height:auto; }
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:100%; max-width:var(--max); margin:0 auto; padding:0 22px; }
+
+    /* Header */
+    .nav{ 
+      position:sticky; 
+      top:0; 
+      z-index:50; 
+      backdrop-filter: saturate(180%) blur(8px);
+      background:rgba(255,255,255,.95); 
+      border-bottom:1px solid var(--border); 
+    }
+    .nav-inner{ 
+      display:flex; 
+      align-items:center; 
+      justify-content:space-between; 
+      gap:16px; 
+      padding:14px 0; 
+    }
+    .brand{ 
+      display:flex; 
+      align-items:center; 
+      gap:12px; 
+      font-weight:800; 
+      letter-spacing:.2px; 
+    }
+    .brand .logo{ 
+      width:36px; 
+      height:36px; 
+      border-radius:8px; 
+      background:linear-gradient(135deg, var(--accent), var(--accent-light)); 
+      display:grid; 
+      place-items:center; 
+      font-weight:900; 
+      color:#fff; 
+      font-size:16px;
+    }
+    .brand span{ font-weight:800; font-size:18px; color:var(--sub); }
+    .nav-links{ 
+      display:flex; 
+      gap:18px; 
+      align-items:center; 
+      transition: all 0.3s ease;
+    }
+    .nav-links a{ color:var(--muted); font-weight:600; font-size:14px; transition: color .3s; }
+    .nav-links a:hover{ color:var(--accent); }
+    .nav a.btn{ 
+      background:var(--accent); 
+      color:white; 
+      padding:10px 16px; 
+      border-radius:12px; 
+      font-weight:700; 
+      letter-spacing:.3px; 
+      border:2px solid transparent; 
+      transition: all .3s;
+    }
+    .nav a.btn:hover{ 
+      background:var(--accent-dark); 
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(245,93,20,.3);
+    }
+
+    /* Mobile menu button */
+    .mobile-menu-btn{
+      display:none;
+      background:none;
+      border:none;
+      padding:8px;
+      cursor:pointer;
+      z-index:60;
+    }
+    .mobile-menu-btn svg{
+      width:24px;
+      height:24px;
+      color:var(--text);
+      transition: transform 0.3s ease;
+    }
+    .mobile-menu-btn.active svg{
+      transform: rotate(90deg);
+    }
+
+    /* Mobile menu overlay */
+    .mobile-menu-overlay{
+      display:none;
+      position:fixed;
+      top:65px;
+      left:0;
+      right:0;
+      bottom:0;
+      background:rgba(0,0,0,0.5);
+      z-index:40;
+      opacity:0;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-menu-overlay.active{
+      opacity:1;
+    }
+
+    /* Hero */
+    .hero{ 
+      position:relative; 
+      overflow:hidden; 
+      background:
+        radial-gradient(900px 380px at 80% -10%, var(--accent-bg), transparent),
+        radial-gradient(780px 360px at 0% 0%, rgba(245,93,20,.08), transparent);
+    }
+    .hero-inner{ 
+      display:grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap:36px; 
+      align-items:center; 
+      padding:68px 0 46px; 
+    }
+    .eyebrow{ 
+      color:var(--accent); 
+      font-weight:800; 
+      letter-spacing:.28em; 
+      font-size:12px; 
+      text-transform:uppercase; 
+    }
+    .h1{ 
+      font-family:Oswald, Impact, system-ui, sans-serif; 
+      font-weight:700; 
+      letter-spacing:.02em; 
+      line-height:1.04;
+      font-size: clamp(36px, 6vw, 70px); 
+      text-transform:uppercase; 
+      margin:10px 0 12px; 
+      color:#0b1220; 
+    }
+    .lead{ 
+      color:#334155; 
+      font-size: clamp(16px, 2.2vw, 20px); 
+      line-height:1.6; 
+      margin: 0 0 22px; 
+      max-width: 58ch; 
+    }
+    .cta-row{ display:flex; gap:14px; flex-wrap:wrap; }
+    .btn{ 
+      display:inline-flex; 
+      align-items:center; 
+      justify-content:center; 
+      gap:10px; 
+      padding:14px 18px; 
+      border-radius:14px;
+      font-weight:700; 
+      letter-spacing:.3px; 
+      border:2px solid transparent; 
+      transition:.15s ease; 
+      cursor:pointer; 
+      font-size:15px;
+    }
+    .btn-primary{ 
+      background:var(--accent); 
+      color:#fff; 
+    }
+    .btn-primary:hover{ 
+      background:var(--accent-dark);
+      transform:translateY(-1px); 
+      box-shadow:0 8px 18px rgba(245,93,20,.25); 
+    }
+    .btn-ghost{ 
+      border-color:var(--border); 
+      background:#fff; 
+      color:var(--text); 
+    }
+    .btn-ghost:hover{ 
+      background:#fff7f4; 
+      border-color:var(--accent); 
+      color:var(--accent);
+    }
+
+    .hero-img{ 
+      position:relative; 
+      border-radius:var(--radius); 
+      overflow:hidden; 
+      border:2px solid var(--accent); 
+      box-shadow:0 20px 40px rgba(245,93,20,.15); 
+      background:#ffffff; 
+    }
+    .hero-img img{ aspect-ratio: 4/5; object-fit:cover; object-position:center; }
+
+    /* Pillars */
+    .pillars{ 
+      padding:60px 0; 
+      border-top:1px solid var(--border); 
+      background:linear-gradient(180deg, var(--accent-bg), transparent); 
+    }
+    .section-title{ 
+      font-family:Oswald, Impact, system-ui, sans-serif; 
+      text-transform:uppercase; 
+      letter-spacing:.02em; 
+      font-weight:700; 
+      font-size: clamp(28px, 4.6vw, 44px); 
+      margin:0 0 6px; 
+      color:#0b1220; 
+      text-align:center;
+    }
+    .section-sub{ 
+      color:#475569; 
+      margin:6px auto 32px; 
+      font-size:16px; 
+      text-align:center;
+      max-width:600px;
+    }
+    .grid-3{ 
+      display:grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap:20px; 
+    }
+    .card{ 
+      background:var(--card); 
+      border:1px solid var(--border); 
+      border-radius:16px; 
+      padding:24px; 
+      box-shadow:var(--shadow); 
+      transition: transform .3s, box-shadow .3s;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(245,93,20,.12);
+      border-color:var(--accent);
+    }
+    .card h3{ 
+      margin:6px 0 12px; 
+      font-size:22px; 
+      letter-spacing:.01em; 
+      color:#0b1220; 
+    }
+    .card p{ 
+      margin:0; 
+      color:#475569; 
+      font-size:15px; 
+      line-height:1.65; 
+    }
+
+    /* Programs */
+    .programs{ padding:64px 0; }
+    .grid-4{ 
+      display:grid; 
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap:20px; 
+    }
+    .program{ 
+      background:var(--card); 
+      border:1px solid var(--border); 
+      border-radius:16px; 
+      overflow:hidden; 
+      display:flex; 
+      flex-direction:column; 
+      box-shadow:var(--shadow); 
+      transition: transform .3s, box-shadow .3s;
+    }
+    .program:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(245,93,20,.12);
+    }
+    .program img{ aspect-ratio: 4/3; object-fit:cover; }
+    .program .content{ 
+      padding:20px; 
+      display:flex; 
+      flex-direction:column; 
+      gap:10px; 
+      flex:1;
+    }
+    .pill{ 
+      display:inline-block; 
+      font-size:12px; 
+      padding:6px 10px; 
+      border-radius:999px; 
+      background:var(--accent-bg); 
+      border:1px solid var(--accent); 
+      color:var(--accent); 
+      font-weight:700; 
+      letter-spacing:.2px; 
+      align-self:flex-start;
+    }
+    .program h4{ margin:0; font-size:18px; color:#0b1220; }
+    .program p{ margin:0; color:#475569; font-size:14px; line-height:1.6; }
+    .program .content .btn{ 
+      margin-top:auto; 
+      align-self:flex-start; 
+      padding:10px 12px; 
+      font-size:13px; 
+      border-radius:10px; 
+    }
+
+    /* Testimonials */
+    .testimonials{ 
+      padding:60px 0; 
+      border-top:1px solid var(--border); 
+      border-bottom:1px solid var(--border); 
+      background:linear-gradient(180deg, var(--accent-bg), transparent); 
+    }
+    .testi-grid{ 
+      display:grid; 
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+      gap:20px; 
+    }
+    .testi{ 
+      background:var(--card); 
+      border:1px solid var(--border); 
+      border-radius:16px; 
+      padding:20px; 
+      display:flex;
+      gap:16px; 
+      box-shadow:var(--shadow); 
+    }
+    .avatar{ 
+      width:56px; 
+      height:56px; 
+      border-radius:50%; 
+      overflow:hidden; 
+      border:2px solid var(--accent); 
+      flex-shrink:0;
+    }
+    .testi-content{ flex:1; }
+    .testi .name{ font-weight:800; margin:0; color:#0b1220; }
+    .testi .loc{ color:var(--muted); font-size:12px; margin:2px 0 8px; }
+    .testi .quote{ margin:0; font-size:14px; color:#475569; line-height:1.65; }
+
+    /* Contact Form Section - REBUILT */
+    .contact-section{ 
+      padding:80px 0; 
+      background:
+        radial-gradient(800px 600px at 20% 50%, var(--accent-bg), transparent),
+        radial-gradient(600px 500px at 80% 50%, rgba(245,93,20,.06), transparent);
+    }
+    .contact-wrapper{
+      max-width:1000px;
+      margin:0 auto;
+      padding:0 24px;
+    }
+    .contact-header{
+      text-align:center;
+      margin-bottom:48px;
+    }
+    .contact-header .section-title{ 
+      font-size: clamp(32px, 5vw, 48px); 
+      margin-bottom:12px;
+    }
+    .contact-header .section-sub{ 
+      font-size:18px;
+      max-width:640px;
+      margin:12px auto 24px;
+    }
+    .benefits-list{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+      gap:16px;
+      max-width:800px;
+      margin:0 auto 48px;
+      padding:0;
+      list-style:none;
+    }
+    .benefits-list li{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:16px;
+      background:rgba(255,255,255,0.7);
+      border-radius:12px;
+      border:1px solid var(--border);
+      font-size:15px;
+      color:#334155;
+      font-weight:500;
+    }
+    .benefits-list li::before{
+      content:"✓";
+      color:var(--accent);
+      font-weight:900;
+      font-size:20px;
+      flex-shrink:0;
+    }
+    
+    .form-card{
+      background:#ffffff;
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:40px;
+      box-shadow:0 20px 60px rgba(0,0,0,.08);
+      max-width:700px;
+      margin:0 auto;
+    }
+
+    /* Form styles */
+    .form{ display:grid; gap:20px; }
+    .form-row{ 
+      display:grid; 
+      grid-template-columns:1fr 1fr; 
+      gap:20px; 
+    }
+    .field{ display:grid; gap:8px; }
+    .label{ 
+      font-weight:700; 
+      font-size:13px; 
+      letter-spacing:.05em; 
+      color:#0f172a; 
+    }
+    .input, .select, .textarea{
+      width:100%; 
+      padding:14px 16px; 
+      border-radius:12px;
+      background:#fff; 
+      border:2px solid var(--border); 
+      color:#0f172a; 
+      font-family:inherit; 
+      font-size:15px;
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .textarea{ min-height:120px; resize:vertical; }
+    .input:focus, .select:focus, .textarea:focus{ 
+      outline:none; 
+      border-color:var(--accent); 
+      box-shadow:0 0 0 3px rgba(245,93,20,.15); 
+    }
+    .select{
+      -webkit-appearance:none; 
+      appearance:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7l5 5 5-5' stroke='%23F55D14' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-position:right 14px center; 
+      background-repeat:no-repeat; 
+      background-size:16px 16px; 
+      padding-right:44px;
+    }
+    .hint{ color:#64748b; font-size:13px; margin-top:4px; }
+    .actions{ 
+      display:flex; 
+      gap:12px; 
+      align-items:center; 
+      margin-top:8px;
+    }
+    .btn-submit{
+      flex:1;
+      padding:16px 24px;
+      font-size:16px;
+      border-radius:12px;
+    }
+    .btn[disabled]{ opacity:.6; cursor:not-allowed; }
+    .alert{ 
+      display:none; 
+      margin-bottom:20px; 
+      padding:14px 16px; 
+      border-radius:12px; 
+      border:1px solid #c7ead2; 
+      background:#edfdf3; 
+      color:#0f5132; 
+      font-size:14px;
+      font-weight:500;
+    }
+    .alert.error{ 
+      border-color:#f3c0c0; 
+      background:#fff0f0; 
+      color:#7f1d1d; 
+    }
+    .req{ color:var(--accent); }
+
+    /* Footer */
+    .footer{ 
+      padding:48px 0 64px; 
+      color:#475569; 
+      font-size:14px; 
+      border-top:1px solid var(--border);
+      background:#fafafa;
+    }
+    .footer .cols{ 
+      display:grid; 
+      grid-template-columns:1.5fr 1fr 1fr 1fr; 
+      gap:32px; 
+    }
+    .footer h5{ 
+      margin:0 0 12px; 
+      color:#0f172a; 
+      font-size:13px; 
+      letter-spacing:.1em; 
+      text-transform:uppercase; 
+    }
+    .footer a:hover{ color:var(--accent); }
+    .social{ display:flex; gap:12px; margin-top:16px; }
+    .social a{ 
+      width:36px; 
+      height:36px; 
+      border-radius:999px; 
+      background:#fff; 
+      display:grid; 
+      place-items:center; 
+      border:1px solid var(--border); 
+      transition: all .3s;
+    }
+    .social a:hover{
+      border-color:var(--accent);
+      color:var(--accent);
+      transform:translateY(-2px);
+    }
+
+    /* Responsive - Tablet */
+    @media (max-width: 1024px){
+      .hero-inner{ 
+        grid-template-columns: 1fr; 
+        padding:52px 0 40px; 
+        text-align:center;
+      }
+      .hero-inner .lead{ margin:0 auto 22px; }
+      .cta-row{ justify-content:center; }
+      .testi-grid{ grid-template-columns: 1fr; }
+      .footer .cols{ grid-template-columns: 1fr 1fr; }
+      .form-card{ padding:32px; }
+      .benefits-list{ grid-template-columns: 1fr; }
+    }
+
+    /* Responsive - Mobile */
+    @media (max-width: 768px){
+      .nav-links{ 
+        position:fixed;
+        top:65px;
+        left:0;
+        right:0;
+        background:#ffffff;
+        flex-direction:column;
+        padding:24px;
+        gap:16px;
+        border-bottom:1px solid var(--border);
+        box-shadow:0 10px 30px rgba(0,0,0,.1);
+        transform:translateY(-120%);
+        opacity:0;
+        pointer-events:none;
+      }
+      .nav-links.active{
+        transform:translateY(0);
+        opacity:1;
+        pointer-events:all;
+      }
+      .nav-links a{
+        width:100%;
+        text-align:center;
+        padding:12px;
+        font-size:16px;
+      }
+      .nav-links a.btn{
+        margin-top:8px;
+      }
+      .mobile-menu-btn{ display:block; }
+      .mobile-menu-overlay{ display:block; }
+      .mobile-menu-overlay.active{ display:block; }
+    }
+
+    @media (max-width: 640px){
+      .container{ padding:0 20px; }
+      .contact-wrapper{ padding:0 20px; }
+      
+      /* Navigation */
+      .nav .container{ padding:0 16px; }
+      .nav a.btn{ 
+        padding:9px 14px; 
+        border-radius:10px; 
+        font-size:14px;
+      }
+      .brand span{ font-size:16px; }
+      .brand .logo{ 
+        width:32px; 
+        height:32px; 
+        font-size:14px;
+      }
+      
+      /* Hero - FULLY FIXED */
+      .hero{
+        background:
+          radial-gradient(600px 300px at 50% 0%, var(--accent-bg), transparent),
+          radial-gradient(500px 250px at 50% 100%, rgba(245,93,20,.06), transparent);
+        padding-top:24px;
+      }
+      .hero .container{
+        padding:0 20px;
+      }
+      .hero-inner{ 
+        padding:32px 0 40px; 
+        gap:28px;
+        text-align:center;
+      }
+      .hero-inner > div:first-child{
+        padding:0;
+      }
+      .eyebrow{ 
+        font-size:10px; 
+        letter-spacing:.2em;
+      }
+      .h1{ 
+        font-size:clamp(28px, 8vw, 36px); 
+        line-height:1.15; 
+        margin:8px 0 16px;
+      }
+      .lead{ 
+        font-size:15px; 
+        line-height:1.65;
+        margin:0 auto 24px;
+        max-width:100%;
+      }
+      .btn{ 
+        padding:14px 20px; 
+        font-size:15px;
+        width:100%;
+        justify-content:center;
+        font-weight:700;
+      }
+      .cta-row{ 
+        flex-direction:column; 
+        width:100%;
+        gap:12px;
+      }
+      .hero-img{ 
+        margin:8px 0 0 0;
+        width:100%;
+      }
+      .hero-img img{ 
+        aspect-ratio: 3/4;
+        width:100%;
+        height:auto;
+      }
+      
+      /* Sections */
+      .section-title{ font-size:28px; }
+      .section-sub{ font-size:14px; margin-bottom:24px; }
+      
+      /* Cards and Grids */
+      .grid-3,
+      .grid-4{ 
+        grid-template-columns: 1fr; 
+        gap:16px;
+      }
+      .card{ padding:20px; }
+      .card h3{ font-size:20px; }
+      
+      /* Programs */
+      .programs{ padding:48px 0; }
+      .program .content{ padding:16px; }
+      
+      /* Testimonials */
+      .testimonials{ padding:48px 0; }
+      .testi{ 
+        flex-direction:column;
+        text-align:center;
+      }
+      .avatar{ margin:0 auto; }
+      
+      /* Contact Form Section */
+      .contact-section{ padding:56px 0; }
+      .contact-header{ margin-bottom:32px; }
+      .contact-header .section-title{ font-size:32px; }
+      .contact-header .section-sub{ font-size:16px; }
+      .benefits-list{ 
+        gap:12px;
+        margin-bottom:32px;
+      }
+      .benefits-list li{
+        padding:12px;
+        font-size:14px;
+      }
+      .form-card{ 
+        padding:24px; 
+        border-radius:16px;
+      }
+      .form-row{ 
+        grid-template-columns:1fr; 
+        gap:16px;
+      }
+      .field{ gap:6px; }
+      .input, .select, .textarea{ 
+        padding:12px 14px; 
+        font-size:16px; /* Prevent zoom on iOS */
+      }
+      .actions{ 
+        flex-direction:column;
+        width:100%; 
+      }
+      .btn-submit{ width:100%; }
+      
+      /* Footer */
+      .footer{ padding:32px 0 48px; }
+      .footer .cols{ 
+        grid-template-columns: 1fr; 
+        gap:24px;
+        text-align:center;
+      }
+      .social{ justify-content:center; }
+    }
+    
+    /* Small phones */
+    @media (max-width: 380px){
+      .container{ padding:0 16px; }
+      .hero .container{ padding:0 16px; }
+      .contact-wrapper{ padding:0 16px; }
+      .nav .container{ padding:0 12px; }
+      .h1{ font-size:26px; }
+      .section-title{ font-size:24px; }
+      .contact-header .section-title{ font-size:28px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <span class="logo">JF</span>
+        <span>Jacked Fitness</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#programs">Programs</a>
+        <a href="#about">Coaching</a>
+        <a href="#testimonials">Results</a>
+        <a href="#contact">Get Started</a>
+        <a class="btn" href="#contact">Book Free Consult</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="eyebrow">TRAINING • NUTRITION • MOBILITY</div>
+        <h1 class="h1">You put in the work. <br>Now get the results.</h1>
+        <p class="lead">Custom coaching built around your goals and lifestyle – with expert-written programming, nutrition guidance, and accountability to keep you moving forward.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contact">Start Your Plan</a>
+          <a class="btn btn-ghost" href="#programs">See Programs</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1541534401786-2077eed87a72?q=80&w=1280&auto=format&fit=crop" alt="Athlete training">
+      </div>
+    </div>
+  </header>
+
+  <section class="pillars" id="about">
+    <div class="container">
+      <h2 class="section-title">Training • Nutrition • Mobility</h2>
+      <p class="section-sub">Everything you need to look, feel, and perform better – delivered in a plan you'll actually follow.</p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Progressive Training</h3>
+          <p>Strength & conditioning plans tailored to your current level with video demos, progressions, and weekly targets.</p>
+        </div>
+        <div class="card">
+          <h3>Smart Nutrition</h3>
+          <p>Macronutrient targets, meal guidance, and check-ins so you build the body you want without starving or guesswork.</p>
+        </div>
+        <div class="card">
+          <h3>Daily Mobility</h3>
+          <p>Short routines designed to fix problem areas, improve posture, and keep you lifting pain-free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="programs" id="programs">
+    <div class="container">
+      <h2 class="section-title">Our Programs</h2>
+      <p class="section-sub">Pick the path that matches your goals. We'll personalize volume, intensity, and nutrition.</p>
+
+      <div class="grid-4">
+        <article class="program">
+          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1280&auto=format&fit=crop" alt="Strength program">
+          <div class="content">
+            <span class="pill">Men / Women</span>
+            <h4>Strength</h4>
+            <p>Build your big lifts with periodized programming and technique cues.</p>
+            <a class="btn btn-ghost" href="#contact">Learn More</a>
+          </div>
+        </article>
+
+        <article class="program">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1280&auto=format&fit=crop" alt="Lean program">
+          <div class="content">
+            <span class="pill">Men / Women</span>
+            <h4>Lean</h4>
+            <p>Drop fat, keep muscle. Strength + conditioning with dialed-in nutrition.</p>
+            <a class="btn btn-ghost" href="#contact">Learn More</a>
+          </div>
+        </article>
+
+        <article class="program">
+          <img src="https://images.unsplash.com/photo-1519500528352-2d1460418d77?q=80&w=1280&auto=format&fit=crop" alt="Athlete program">
+          <div class="content">
+            <span class="pill">Performance</span>
+            <h4>Athlete</h4>
+            <p>Get faster, stronger, and more explosive with targeted speed & power work.</p>
+            <a class="btn btn-ghost" href="#contact">Learn More</a>
+          </div>
+        </article>
+
+        <article class="program">
+          <img src="https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?q=80&w=1280&auto=format&fit=crop" alt="At-home dumbbell program">
+          <div class="content">
+            <span class="pill">Minimal Equipment</span>
+            <h4>At-Home Dumbbell</h4>
+            <p>Efficient workouts you can do anywhere with just a pair of dumbbells.</p>
+            <a class="btn btn-ghost" href="#contact">Learn More</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <h2 class="section-title">Client Results</h2>
+      <p class="section-sub">Real people. Real progress. Stronger, leaner, and more confident.</p>
+
+      <div class="testi-grid">
+        <div class="testi">
+          <div class="avatar">
+            <img src="https://images.unsplash.com/photo-1544725121-3c3f3f3b3c49?q=80&w=300&auto=format&fit=crop" alt="Client avatar">
+          </div>
+          <div class="testi-content">
+            <p class="name">Jordan P.</p>
+            <p class="loc">Austin, TX</p>
+            <p class="quote">"Down 16 lbs in 10 weeks and hit a lifetime PR on deadlift. The weekly check-ins kept me accountable."</p>
+          </div>
+        </div>
+        <div class="testi">
+          <div class="avatar">
+            <img src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=300&auto=format&fit=crop" alt="Client avatar">
+          </div>
+          <div class="testi-content">
+            <p class="name">Aisha K.</p>
+            <p class="loc">Dubai, UAE</p>
+            <p class="quote">"I finally understand macros and how to fit meals into my schedule. I feel amazing."</p>
+          </div>
+        </div>
+        <div class="testi">
+          <div class="avatar">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=300&auto=format&fit=crop" alt="Client avatar">
+          </div>
+          <div class="testi-content">
+            <p class="name">Chris R.</p>
+            <p class="loc">London, UK</p>
+            <p class="quote">"Mobility work changed the game. Fewer aches, better lifts, and I actually enjoy training again."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="contact-wrapper">
+      <div class="contact-header">
+        <h2 class="section-title">Start Your Transformation</h2>
+        <p class="section-sub">Tell us about your goals and we'll match you with the right program and coach to help you succeed.</p>
+        
+        <ul class="benefits-list">
+          <li>Free 15-minute consultation call</li>
+          <li>Custom training & nutrition roadmap</li>
+          <li>Cancel anytime – no long-term contract</li>
+        </ul>
+      </div>
+
+      <div class="form-card">
+        <div id="form-alert" class="alert" role="status" aria-live="polite"></div>
+
+        <form id="lead-form" class="form" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label class="label" for="full_name">Full Name <span class="req">*</span></label>
+              <input class="input" type="text" id="full_name" name="full_name" placeholder="Jane Doe" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label class="label" for="email">Email Address <span class="req">*</span></label>
+              <input class="input" type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label class="label" for="phone">Phone Number</label>
+              <input class="input" type="tel" id="phone" name="phone" placeholder="+1 555 123 4567" autocomplete="tel">
+              <div class="hint">Optional – for scheduling updates only</div>
+            </div>
+            <div class="field">
+              <label class="label" for="goal">Primary Goal</label>
+              <select class="select" id="goal" name="goal">
+                <option value="Strength">Get Stronger</option>
+                <option value="Fat Loss">Lose Fat</option>
+                <option value="Performance">Sports Performance</option>
+                <option value="Mobility">Mobility / Pain-Free</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="message">Tell Us More</label>
+            <textarea class="textarea" id="message" name="message" placeholder="Your training experience, schedule constraints, any injuries or limitations..."></textarea>
+          </div>
+
+          <div class="actions">
+            <button id="submit-btn" class="btn btn-primary btn-submit" type="submit">Book Free Consultation</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="cols">
+        <div>
+          <div class="brand" style="margin-bottom:8px;">
+            <span class="logo">JF</span><span>Jacked Fitness</span>
+          </div>
+          <p>World-class coaching for everyday athletes. Train smarter, eat better, move well.</p>
+          <div class="social">
+            <a href="#" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5Zm5.75-3.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25Z" fill="currentColor"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-2.9h2v-2.2c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2v2h2.3L15 14.9h-2v7A10 10 0 0 0 22 12Z" fill="currentColor"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c1.8.6 9.3.6 9.3.6s7.6 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.7 15.3V8.7l6.3 3.3-6.3 3.3Z" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h5>Pages</h5>
+          <div style="display:grid; gap:8px;">
+            <a href="index.html">Home</a>
+            <a href="#programs">Programs</a>
+            <a href="#about">Coaching</a>
+            <a href="#testimonials">Results</a>
+            <a href="#contact">Get Started</a>
+          </div>
+        </div>
+        <div>
+          <h5>Legal</h5>
+          <div style="display:grid; gap:8px;">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+          </div>
+        </div>
+        <div>
+          <h5>Contact</h5>
+          <div style="display:grid; gap:8px;">
+            <span>hello@jackedfitnesscoaching.com</span>
+            <span>+1 (555) 123-4567</span>
+            <span>Mon–Fri 8am–6pm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+    function toggleMenu() {
+      const isOpen = navLinks.classList.contains('active');
+      
+      if (isOpen) {
+        navLinks.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      } else {
+        navLinks.classList.add('active');
+        mobileMenuOverlay.classList.add('active');
+        mobileMenuBtn.classList.add('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+    mobileMenuOverlay.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+          toggleMenu();
+        }
+      });
+    });
+
+    // Close menu on window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+        toggleMenu();
+      }
+    });
+
+    // Form Handling
+    const FORM_ENDPOINT = ""; // empty => demo mode
+
+    const form = document.getElementById('lead-form');
+    const alertEl = document.getElementById('form-alert');
+    const submitBtn = document.getElementById('submit-btn');
+
+    function setAlert(msg, isError=false){
+      alertEl.textContent = msg;
+      alertEl.className = 'alert' + (isError ? ' error' : '');
+      alertEl.style.display = 'block';
+      alertEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    
+    function clearAlert(){ 
+      alertEl.style.display='none'; 
+      alertEl.textContent=''; 
+    }
+    
+    function disableForm(disabled){
+      submitBtn.disabled = disabled;
+      submitBtn.textContent = disabled ? 'Sending…' : 'Book Free Consultation';
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearAlert();
+
+      if(!form.full_name.value.trim() || !form.email.value.trim()){
+        setAlert('Please fill in your name and a valid email address.', true);
+        return;
+      }
+      
+      const data = Object.fromEntries(new FormData(form).entries());
+      disableForm(true);
+
+      if(FORM_ENDPOINT){
+        try {
+          const res = await fetch(FORM_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          if(!res.ok) throw new Error('Request failed');
+          form.reset();
+          setAlert('Thank you! Your request has been received. We will contact you within 24 hours to schedule your free consultation.');
+        } catch (err){
+          setAlert('Sorry, something went wrong. Please try again or email us directly at hello@jackedfitnesscoaching.com', true);
+        } finally {
+          disableForm(false);
+        }
+      } else {
+        console.log('Lead submission (demo mode):', data);
+        await new Promise(r => setTimeout(r, 800));
+        form.reset();
+        setAlert('Thank you! Your request has been received. We will contact you within 24 hours. (Demo mode – no data was actually sent.)');
+        disableForm(false);
+      }
+    });
+  </script>
+</body>
+</html>

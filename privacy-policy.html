@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy - Jacked Fitness</title>
+  <meta name="description" content="Privacy Policy for Jacked Fitness Coaching">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --panel:#fff7f4;
+      --muted:#64748b;
+      --text:#0f172a;
+      --sub:#334155;
+      --accent:#F55D14;
+      --accent-dark:#d04a0f;
+      --accent-light:#ff7a3d;
+      --accent-bg:rgba(245, 93, 20, 0.1);
+      --accent-2:#0ea5e9;
+      --card:#ffffff;
+      --border:#e2e8f0;
+      --white:#ffffff;
+      --max:1200px;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(2,6,23,.06);
+    }
+
+    *,*::before,*::after{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0; 
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text); 
+      background:var(--bg);
+      text-rendering:optimizeLegibility; 
+      -webkit-font-smoothing:antialiased;
+      overflow-x: hidden;
+    }
+    img{ max-width:100%; display:block; height:auto; }
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:100%; max-width:var(--max); margin:0 auto; padding:0 22px; }
+
+    /* Header */
+    .nav{ 
+      position:sticky; 
+      top:0; 
+      z-index:50; 
+      backdrop-filter: saturate(180%) blur(8px);
+      background:rgba(255,255,255,.95); 
+      border-bottom:1px solid var(--border); 
+    }
+    .nav-inner{ 
+      display:flex; 
+      align-items:center; 
+      justify-content:space-between; 
+      gap:16px; 
+      padding:14px 0; 
+    }
+    .brand{ 
+      display:flex; 
+      align-items:center; 
+      gap:12px; 
+      font-weight:800; 
+      letter-spacing:.2px; 
+    }
+    .brand .logo{ 
+      width:36px; 
+      height:36px; 
+      border-radius:8px; 
+      background:linear-gradient(135deg, var(--accent), var(--accent-light)); 
+      display:grid; 
+      place-items:center; 
+      font-weight:900; 
+      color:#fff; 
+      font-size:16px;
+    }
+    .brand span{ font-weight:800; font-size:18px; color:var(--sub); }
+    .nav-links{ 
+      display:flex; 
+      gap:18px; 
+      align-items:center; 
+      transition: all 0.3s ease;
+    }
+    .nav-links a{ color:var(--muted); font-weight:600; font-size:14px; transition: color .3s; }
+    .nav-links a:hover{ color:var(--accent); }
+    .nav a.btn{ 
+      background:var(--accent); 
+      color:white; 
+      padding:10px 16px; 
+      border-radius:12px; 
+      font-weight:700; 
+      letter-spacing:.3px; 
+      border:2px solid transparent; 
+      transition: all .3s;
+    }
+    .nav a.btn:hover{ 
+      background:var(--accent-dark); 
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(245,93,20,.3);
+    }
+
+    /* Mobile menu button */
+    .mobile-menu-btn{
+      display:none;
+      background:none;
+      border:none;
+      padding:8px;
+      cursor:pointer;
+      z-index:60;
+    }
+    .mobile-menu-btn svg{
+      width:24px;
+      height:24px;
+      color:var(--text);
+      transition: transform 0.3s ease;
+    }
+    .mobile-menu-btn.active svg{
+      transform: rotate(90deg);
+    }
+
+    /* Mobile menu overlay */
+    .mobile-menu-overlay{
+      display:none;
+      position:fixed;
+      top:65px;
+      left:0;
+      right:0;
+      bottom:0;
+      background:rgba(0,0,0,0.5);
+      z-index:40;
+      opacity:0;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-menu-overlay.active{
+      opacity:1;
+    }
+
+    /* Legal Page Styles */
+    .legal-hero{
+      padding:80px 0 40px;
+      background:linear-gradient(180deg, var(--accent-bg), transparent);
+      border-bottom:1px solid var(--border);
+    }
+    .legal-hero h1{
+      font-family:Oswald, Impact, system-ui, sans-serif;
+      font-size:clamp(36px, 5vw, 56px);
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.02em;
+      margin:0 0 12px;
+      color:#0b1220;
+    }
+    .legal-hero .date{
+      color:var(--muted);
+      font-size:16px;
+      font-weight:600;
+    }
+    
+    .legal-content{
+      padding:60px 0 80px;
+    }
+    .legal-content .container{
+      max-width:800px;
+    }
+    .legal-content h2{
+      font-size:28px;
+      font-weight:700;
+      margin:40px 0 16px;
+      color:#0b1220;
+    }
+    .legal-content h2:first-child{
+      margin-top:0;
+    }
+    .legal-content h3{
+      font-size:20px;
+      font-weight:700;
+      margin:28px 0 12px;
+      color:#0b1220;
+    }
+    .legal-content p{
+      line-height:1.7;
+      margin:0 0 16px;
+      color:#334155;
+      font-size:16px;
+    }
+    .legal-content ul{
+      margin:16px 0;
+      padding-left:24px;
+    }
+    .legal-content li{
+      margin:8px 0;
+      line-height:1.7;
+      color:#334155;
+    }
+    .legal-content a{
+      color:var(--accent);
+      text-decoration:underline;
+    }
+    .legal-content a:hover{
+      color:var(--accent-dark);
+    }
+
+    /* Footer */
+    .footer{ 
+      padding:48px 0 64px; 
+      color:#475569; 
+      font-size:14px; 
+      border-top:1px solid var(--border);
+      background:#fafafa;
+    }
+    .footer .cols{ 
+      display:grid; 
+      grid-template-columns:1.5fr 1fr 1fr 1fr; 
+      gap:32px; 
+    }
+    .footer h5{ 
+      margin:0 0 12px; 
+      color:#0f172a; 
+      font-size:13px; 
+      letter-spacing:.1em; 
+      text-transform:uppercase; 
+    }
+    .footer a:hover{ color:var(--accent); }
+    .social{ display:flex; gap:12px; margin-top:16px; }
+    .social a{ 
+      width:36px; 
+      height:36px; 
+      border-radius:999px; 
+      background:#fff; 
+      display:grid; 
+      place-items:center; 
+      border:1px solid var(--border); 
+      transition: all .3s;
+    }
+    .social a:hover{
+      border-color:var(--accent);
+      color:var(--accent);
+      transform:translateY(-2px);
+    }
+
+    /* Responsive - Mobile */
+    @media (max-width: 768px){
+      .nav-links{ 
+        position:fixed;
+        top:65px;
+        left:0;
+        right:0;
+        background:#ffffff;
+        flex-direction:column;
+        padding:24px;
+        gap:16px;
+        border-bottom:1px solid var(--border);
+        box-shadow:0 10px 30px rgba(0,0,0,.1);
+        transform:translateY(-120%);
+        opacity:0;
+        pointer-events:none;
+      }
+      .nav-links.active{
+        transform:translateY(0);
+        opacity:1;
+        pointer-events:all;
+      }
+      .nav-links a{
+        width:100%;
+        text-align:center;
+        padding:12px;
+        font-size:16px;
+      }
+      .nav-links a.btn{
+        margin-top:8px;
+      }
+      .mobile-menu-btn{ display:block; }
+      .mobile-menu-overlay{ display:block; }
+      .mobile-menu-overlay.active{ display:block; }
+      
+      .footer .cols{ 
+        grid-template-columns: 1fr 1fr; 
+        gap:24px;
+      }
+    }
+
+    @media (max-width: 640px){
+      .container{ padding:0 20px; }
+      
+      .nav .container{ padding:0 16px; }
+      .nav a.btn{ 
+        padding:9px 14px; 
+        border-radius:10px; 
+        font-size:14px;
+      }
+      .brand span{ font-size:16px; }
+      .brand .logo{ 
+        width:32px; 
+        height:32px; 
+        font-size:14px;
+      }
+      
+      .legal-hero{
+        padding:60px 0 32px;
+      }
+      .legal-hero h1{
+        font-size:32px;
+      }
+      .legal-hero .date{
+        font-size:14px;
+      }
+      
+      .legal-content{
+        padding:40px 0 60px;
+      }
+      .legal-content h2{
+        font-size:24px;
+        margin:32px 0 12px;
+      }
+      .legal-content h3{
+        font-size:18px;
+      }
+      .legal-content p{
+        font-size:15px;
+      }
+      
+      .footer{ padding:32px 0 48px; }
+      .footer .cols{ 
+        grid-template-columns: 1fr; 
+        gap:24px;
+        text-align:center;
+      }
+      .social{ justify-content:center; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <span class="logo">JF</span>
+        <span>Jacked Fitness</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#about">Coaching</a>
+        <a href="index.html#testimonials">Results</a>
+        <a href="index.html#contact">Get Started</a>
+        <a class="btn" href="index.html#contact">Book Free Consult</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu" aria-expanded="false">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+  <section class="legal-hero">
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p class="date">Last Updated: September 30, 2025</p>
+    </div>
+  </section>
+
+  <section class="legal-content">
+    <div class="container">
+      <p>At Jacked Fitness ("we," "our," or "us"), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="https://jackedfitnesscoaching.com">jackedfitnesscoaching.com</a> and use our services.</p>
+
+      <h2>1. Information We Collect</h2>
+      
+      <h3>Personal Information</h3>
+      <p>We may collect personal information that you voluntarily provide to us when you:</p>
+      <ul>
+        <li>Register for our coaching programs</li>
+        <li>Fill out contact forms or consultation requests</li>
+        <li>Subscribe to our newsletter</li>
+        <li>Communicate with us via email or phone</li>
+        <li>Make payments for our services</li>
+      </ul>
+      <p>This information may include:</p>
+      <ul>
+        <li>Name and contact information (email address, phone number, mailing address)</li>
+        <li>Age, gender, and fitness-related information</li>
+        <li>Payment and billing information</li>
+        <li>Health and medical information relevant to fitness coaching</li>
+        <li>Progress photos and measurements (if provided)</li>
+      </ul>
+
+      <h3>Automatically Collected Information</h3>
+      <p>When you visit our website, we may automatically collect certain information about your device, including:</p>
+      <ul>
+        <li>IP address and browser type</li>
+        <li>Operating system and device information</li>
+        <li>Pages visited and time spent on our site</li>
+        <li>Referring website addresses</li>
+        <li>Cookies and similar tracking technologies</li>
+      </ul>
+
+      <h2>2. How We Use Your Information</h2>
+      <p>We use the information we collect for the following purposes:</p>
+      <ul>
+        <li>To provide and deliver our fitness coaching services</li>
+        <li>To create and manage your account</li>
+        <li>To process payments and send billing information</li>
+        <li>To communicate with you about your program, appointments, and progress</li>
+        <li>To personalize your coaching experience and workout programs</li>
+        <li>To send you newsletters, marketing materials, and promotional offers (with your consent)</li>
+        <li>To respond to your inquiries and provide customer support</li>
+        <li>To improve our website and services</li>
+        <li>To comply with legal obligations and protect our rights</li>
+      </ul>
+
+      <h2>3. How We Share Your Information</h2>
+      <p>We do not sell or rent your personal information to third parties. We may share your information in the following circumstances:</p>
+      
+      <h3>Service Providers</h3>
+      <p>We may share your information with third-party service providers who assist us in operating our business, including:</p>
+      <ul>
+        <li>Payment processors</li>
+        <li>Email marketing platforms</li>
+        <li>Cloud storage providers</li>
+        <li>Analytics services</li>
+        <li>Customer relationship management (CRM) systems</li>
+      </ul>
+
+      <h3>Legal Requirements</h3>
+      <p>We may disclose your information if required by law or in response to valid legal requests, such as:</p>
+      <ul>
+        <li>Court orders or subpoenas</li>
+        <li>Government investigations</li>
+        <li>To protect our rights, property, or safety</li>
+        <li>To prevent fraud or illegal activity</li>
+      </ul>
+
+      <h3>Business Transfers</h3>
+      <p>In the event of a merger, acquisition, or sale of assets, your information may be transferred to the new owner.</p>
+
+      <h2>4. Data Security</h2>
+      <p>We implement appropriate technical and organizational security measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction. These measures include:</p>
+      <ul>
+        <li>Encryption of sensitive data in transit and at rest</li>
+        <li>Secure servers and hosting infrastructure</li>
+        <li>Regular security audits and updates</li>
+        <li>Limited access to personal information by authorized personnel only</li>
+      </ul>
+      <p>However, no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+
+      <h2>5. Your Rights and Choices</h2>
+      <p>Depending on your location, you may have certain rights regarding your personal information, including:</p>
+      <ul>
+        <li><strong>Access:</strong> You can request a copy of the personal information we hold about you</li>
+        <li><strong>Correction:</strong> You can request that we correct inaccurate or incomplete information</li>
+        <li><strong>Deletion:</strong> You can request that we delete your personal information, subject to certain exceptions</li>
+        <li><strong>Opt-Out:</strong> You can opt out of receiving marketing communications by clicking the "unsubscribe" link in our emails</li>
+        <li><strong>Data Portability:</strong> You can request a copy of your data in a structured, machine-readable format</li>
+        <li><strong>Restriction:</strong> You can request that we restrict the processing of your information</li>
+      </ul>
+      <p>To exercise these rights, please contact us at <a href="mailto:hello@jackedfitnesscoaching.com">hello@jackedfitnesscoaching.com</a>.</p>
+
+      <h2>6. Cookies and Tracking Technologies</h2>
+      <p>We use cookies and similar tracking technologies to enhance your experience on our website. Cookies are small text files stored on your device that help us:</p>
+      <ul>
+        <li>Remember your preferences and settings</li>
+        <li>Analyze website traffic and usage patterns</li>
+        <li>Deliver targeted advertising</li>
+        <li>Improve website functionality</li>
+      </ul>
+      <p>You can control cookies through your browser settings. However, disabling cookies may limit your ability to use certain features of our website.</p>
+
+      <h2>7. Third-Party Links</h2>
+      <p>Our website may contain links to third-party websites and services. We are not responsible for the privacy practices or content of these third parties. We encourage you to review their privacy policies before providing any personal information.</p>
+
+      <h2>8. Children's Privacy</h2>
+      <p>Our services are not intended for individuals under the age of 18. We do not knowingly collect personal information from children. If we become aware that we have collected information from a child without parental consent, we will take steps to delete that information.</p>
+
+      <h2>9. International Data Transfers</h2>
+      <p>Your information may be transferred to and processed in countries other than your country of residence. These countries may have different data protection laws. By using our services, you consent to the transfer of your information to these countries.</p>
+
+      <h2>10. Changes to This Privacy Policy</h2>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of any material changes by posting the updated policy on our website with a new "Last Updated" date. Your continued use of our services after such changes constitutes your acceptance of the updated policy.</p>
+
+      <h2>11. Contact Us</h2>
+      <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:</p>
+      <p>
+        <strong>Jacked Fitness</strong><br>
+        Email: <a href="mailto:hello@jackedfitnesscoaching.com">hello@jackedfitnesscoaching.com</a><br>
+        Phone: +1 (555) 123-4567<br>
+        Hours: Monday–Friday, 8am–6pm
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="cols">
+        <div>
+          <div class="brand" style="margin-bottom:8px;">
+            <span class="logo">JF</span><span>Jacked Fitness</span>
+          </div>
+          <p>World-class coaching for everyday athletes. Train smarter, eat better, move well.</p>
+          <div class="social">
+            <a href="#" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5Zm5.75-3.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25Z" fill="currentColor"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-2.9h2v-2.2c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2v2h2.3L15 14.9h-2v7A10 10 0 0 0 22 12Z" fill="currentColor"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c1.8.6 9.3.6 9.3.6s7.6 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.7 15.3V8.7l6.3 3.3-6.3 3.3Z" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h5>Pages</h5>
+          <div style="display:grid; gap:8px;">
+            <a href="index.html">Home</a>
+            <a href="index.html#programs">Programs</a>
+            <a href="index.html#about">Coaching</a>
+            <a href="index.html#testimonials">Results</a>
+            <a href="index.html#contact">Get Started</a>
+          </div>
+        </div>
+        <div>
+          <h5>Legal</h5>
+          <div style="display:grid; gap:8px;">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+          </div>
+        </div>
+        <div>
+          <h5>Contact</h5>
+          <div style="display:grid; gap:8px;">
+            <span>hello@jackedfitnesscoaching.com</span>
+            <span>+1 (555) 123-4567</span>
+            <span>Mon–Fri 8am–6pm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+    function toggleMenu() {
+      const isOpen = navLinks.classList.contains('active');
+      
+      if (isOpen) {
+        navLinks.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      } else {
+        navLinks.classList.add('active');
+        mobileMenuOverlay.classList.add('active');
+        mobileMenuBtn.classList.add('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+    mobileMenuOverlay.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+          toggleMenu();
+        }
+      });
+    });
+
+    // Close menu on window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+        toggleMenu();
+      }
+    });
+  </script>
+</body>
+</html>
