@@ -15,14 +15,17 @@
       --muted:#64748b;
       --text:#0f172a;
       --sub:#334155;
-      --accent:#F55D14;
-      --accent-dark:#d04a0f;
-      --accent-light:#ff7a3d;
-      --accent-bg:rgba(245, 93, 20, 0.1);
+      --accent:#E89CA4;
+      --accent-dark:#c67b83;
+      --accent-light:#f4c6cc;
+      --accent-bg:rgba(232, 156, 164, 0.14);
       --accent-2:#0ea5e9;
       --card:#ffffff;
       --border:#e2e8f0;
       --white:#ffffff;
+      --btn-bg:#1B0301;
+      --btn-hover:#320d0c;
+      --btn-text:#ffffff;
       --max:1200px;
       --radius:18px;
       --shadow:0 10px 30px rgba(2,6,23,.06);
@@ -87,19 +90,21 @@
     .nav-links a{ color:var(--muted); font-weight:600; font-size:14px; transition: color .3s; }
     .nav-links a:hover{ color:var(--accent); }
     .nav a.btn{ 
-      background:var(--accent); 
-      color:white; 
+      background:var(--btn-bg); 
+      color:var(--btn-text); 
       padding:10px 16px; 
       border-radius:12px; 
       font-weight:700; 
       letter-spacing:.3px; 
       border:2px solid transparent; 
       transition: all .3s;
+      box-shadow:0 6px 16px rgba(27,3,1,.35);
     }
     .nav a.btn:hover{ 
-      background:var(--accent-dark); 
+      background:var(--btn-hover); 
+      color:var(--btn-text);
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(245,93,20,.3);
+      box-shadow: 0 10px 20px rgba(27,3,1,.45);
     }
 
     /* Mobile menu button */
